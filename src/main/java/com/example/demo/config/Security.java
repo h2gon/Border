@@ -45,7 +45,9 @@ public class Security extends WebSecurityConfigurerAdapter{
                 // 로그아웃 관련 설정
             .logout()
                 .logoutSuccessUrl("/")
-                .permitAll();
+                .invalidateHttpSession(true)
+                .and()
+            .authenticationProvider(authProvider);
     }
 
     @Bean
