@@ -25,9 +25,13 @@ public class HomeController {
         this.memberService = memberService;
     }
 
-
     @GetMapping("/")
-    public String home(){
+    public String login(){
+        return "login";
+    }
+
+    @GetMapping("/border")
+    public String border(){
         return "index";
     }
 
@@ -36,6 +40,6 @@ public class HomeController {
         memberService.join(member);
         log.info(member.toString() + " 의 회원가입 완료");
         
-        return "index";
+        return "login";
     }
 }
